@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void giveMeAJoke() {
-            HttpResponse<JsonNode> response = Unirest.get("https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random")
+            GetRequest response = Unirest.get("https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random")
                 .header("X-RapidAPI-Host", "matchilling-chuck-norris-jokes-v1.p.rapidapi.com")
                 .header("X-RapidAPI-Key", "2cfab13061msh32875b190d6bcbep1a88a5jsn98f7ff6281e5")
-                .header("accept", "application/json").asJson();
+                .header("accept", "application/json");
 
-        final String joke = response.getHeaders().get(4).toString();
+        final String joke = response.toString();
 
         final TextView Joke = (TextView) findViewById(R.id.joketext);
         Button MakeJoke = (Button) findViewById(R.id.jokebutton);
